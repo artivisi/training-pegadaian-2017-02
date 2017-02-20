@@ -14,13 +14,20 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
 				<li><a routerLink="/about">About</a></li>
-				<li><a href="#about">Simulasi</a></li>
-				<li><a href="#about">Gadai</a></li>
+				<li *ngIf="auth.sudahLogin()"><a href="#about">Simulasi</a></li>
+				<li *ngIf="auth.sudahLogin()"><a href="#about">Gadai</a></li>
+
+				<li *ngIf="auth.sudahLogin()"><a href="#about">Welcome {{auth.getUserInfo().fullname}}</a></li>
 			</ul>
-			<form class="navbar-form navbar-right">
-		        <a routerLink="/login" type="submit" class="btn btn-default btn-primary">Login</a>
-				<a routerLink="/registrasi" class="btn btn-default btn-primary">Register</a>
+
+			<form class="navbar-form navbar-right" *ngIf="auth.sudahLogin()">
+		        <a routerLink="/login" type="submit" class="btn btn-default btn-primary" (click)="logout()">Logout</a>
 		      </form>
+
+			  <form class="navbar-form navbar-right" *ngIf="!auth.sudahLogin()">
+  		        <a routerLink="/login" type="submit" class="btn btn-default btn-primary">Login</a>
+  				<a routerLink="/registrasi" class="btn btn-default btn-primary">Register</a>
+  		      </form>
 		</div><!--/.nav-collapse -->
 	</div>
 </nav>
