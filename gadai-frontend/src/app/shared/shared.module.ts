@@ -5,13 +5,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrasiComponent } from './registrasi/registrasi.component';
 import { FooterComponent } from './footer/footer.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   imports: [
     CommonModule,
 	RouterModule
   ],
-  declarations: [ NavbarComponent, LoginComponent, RegistrasiComponent, FooterComponent ],
-  exports: [ NavbarComponent, FooterComponent, LoginComponent, RegistrasiComponent ]
+  declarations: [ NavbarComponent, LoginComponent, RegistrasiComponent, FooterComponent, WelcomeComponent ],
+  exports: [ NavbarComponent, FooterComponent, LoginComponent, RegistrasiComponent, WelcomeComponent ]
 })
 export class SharedModule { }
