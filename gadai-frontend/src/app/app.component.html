@@ -20,4 +20,22 @@
 	</div>
 </div>
 
+<div class="modal fade" bsModal #progressDialog="bs-modal" [config]="{backdrop: 'static'}"
+tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title pull-left">Processing Request</h4>
+		</div>
+		<div class="modal-body">
+			Message : {{progressMessage}}
+			<div class="row">
+				<div class="col-sm-8">
+					<progressbar value="100" [animate]="false"></progressbar>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 <footer-aplikasi></footer-aplikasi>

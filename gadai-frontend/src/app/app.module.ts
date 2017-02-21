@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
 
 import { DropdownModule } from 'ng2-bootstrap';
+import { ModalModule } from 'ng2-bootstrap';
+import { ProgressbarModule } from 'ng2-bootstrap';
 
 import { SharedModule } from './shared/shared.module';
 import { GadaiModule } from './gadai/gadai.module';
@@ -16,6 +18,7 @@ import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { LupaComponent } from './shared/lupa/lupa.component';
 
 import { AuthGuard } from './shared/auth.guard';
+import { ProgressDialogService } from './shared/progress-dialog.service';
 
 const routingAplikasi : Routes = [
 	{path : 'login', component : LoginComponent},
@@ -35,10 +38,12 @@ const routingAplikasi : Routes = [
     HttpModule,
 	RouterModule.forRoot(routingAplikasi),
 	DropdownModule.forRoot(),
+	ModalModule.forRoot(),
+	ProgressbarModule.forRoot(),
 	SharedModule,
 	GadaiModule
   ],
-  providers: [ AuthGuard ],
+  providers: [ AuthGuard, ProgressDialogService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
