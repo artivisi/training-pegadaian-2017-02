@@ -37,6 +37,7 @@
 
 <pengajuan-gadai *ngIf="pengajuan.nilai"
 	[pengajuan]="pengajuan"
+	[fileUploader]="objFileUploader"
 	(pengajuanEmitter)="tambahkanPengajuanKeTabel($event)"
 	>
 </pengajuan-gadai>
@@ -64,12 +65,12 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let p of daftarPengajuan">
-			<td>1</td>
+		<tr *ngFor="let p of daftarPengajuan; let i = index">
+			<td>{{i + 1}}</td>
 			<td>{{p.beratKotor}}</td>
 			<td>{{p.beratBersih}}</td>
 			<td>{{p.karatase}} karat</td>
-			<td>{{p.foto}}</td>
+			<td>{{ objFileUploader.queue[i]?.file?.name }} ({{objFileUploader.queue[i]?.file?.size}})</td>
 			<td>{{p.nilai}}</td>
 			<td>
 				<button class="btn btn-sm btn-default">hapus</button>

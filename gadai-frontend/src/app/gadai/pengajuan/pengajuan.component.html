@@ -10,9 +10,7 @@
   <div class="form-group">
 	<label for="foto" class="col-sm-2 control-label">Foto</label>
 	<div class="col-sm-6">
-	  <input type="text"
-		name="foto" [(ngModel)]="foto"
-	  class="form-control" id="foto" placeholder="Upload Foto">
+	  <input type="file" ng2FileSelect [uploader]="fileUploader" />
 	</div>
   </div>
 

@@ -7,6 +7,8 @@ import { SimulasiComponent } from './simulasi/simulasi.component';
 import { PengajuanComponent } from './pengajuan/pengajuan.component';
 import { HistoryComponent } from './history/history.component';
 
+import { FileSelectDirective } from 'ng2-file-upload';
+
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../shared/auth.guard';
 
@@ -23,6 +25,6 @@ const routingGadai : Routes = [
 	RouterModule.forChild(routingGadai),
 	DropdownModule
   ],
-  declarations: [SimulasiComponent, PengajuanComponent, HistoryComponent]
+  declarations: [SimulasiComponent, PengajuanComponent, HistoryComponent, FileSelectDirective]
 })
 export class GadaiModule { }
