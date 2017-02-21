@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-
+import { Subscription } from 'rxjs/Subscription';
 import { ModalDirective } from 'ng2-bootstrap/modal';
 
 import { ProgressDialogService } from './shared/progress-dialog.service';

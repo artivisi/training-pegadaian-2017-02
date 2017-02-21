@@ -12,10 +12,10 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/">Home</a></li>
 				<li><a routerLink="/about">About</a></li>
-				<li *ngIf="auth.sudahLogin()"><a routerLink="/gadai/simulasi">Simulasi</a></li>
-				<li *ngIf="auth.sudahLogin()"><a href="#about">Welcome {{auth.getUserInfo().fullname}}</a></li>
+				<li routerLinkActive="active" *ngIf="auth.sudahLogin()"><a routerLink="/gadai/simulasi">Simulasi</a></li>
+				<li routerLinkActive="active" *ngIf="auth.sudahLogin()"><a href="#about">Welcome {{auth.getUserInfo().fullname}}</a></li>
 			</ul>
 
 			<form class="navbar-form navbar-right" *ngIf="auth.sudahLogin()">
