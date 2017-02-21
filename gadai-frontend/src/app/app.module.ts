@@ -15,10 +15,13 @@ import { RegistrasiComponent } from './shared/registrasi/registrasi.component';
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { LupaComponent } from './shared/lupa/lupa.component';
 
+import { AuthGuard } from './shared/auth.guard';
+
 const routingAplikasi : Routes = [
 	{path : 'login', component : LoginComponent},
 	{path : 'registrasi', component : RegistrasiComponent},
 	{path : 'lupa', component : LupaComponent},
+	{path : 'gadai', redirectTo : "/gadai", pathMatch: "full"},
 	{path : '**', component : WelcomeComponent}
 ];
 
@@ -35,7 +38,7 @@ const routingAplikasi : Routes = [
 	SharedModule,
 	GadaiModule
   ],
-  providers: [],
+  providers: [ AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

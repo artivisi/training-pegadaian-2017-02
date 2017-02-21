@@ -6,10 +6,13 @@ import { SimulasiComponent } from './simulasi/simulasi.component';
 import { PengajuanComponent } from './pengajuan/pengajuan.component';
 import { HistoryComponent } from './history/history.component';
 
+import { SharedModule } from '../shared/shared.module';
+import { AuthGuard } from '../shared/auth.guard';
+
 const routingGadai : Routes = [
-	{path : 'gadai/simulasi', component : SimulasiComponent},
-	{path : 'gadai/pengajuan', component : PengajuanComponent},
-	{path : 'gadai/history', component : HistoryComponent}
+	{path : 'gadai/simulasi', component : SimulasiComponent, canActivate: [AuthGuard]},
+	{path : 'gadai/pengajuan', component : PengajuanComponent, canActivate: [AuthGuard]},
+	{path : 'gadai/history', component : HistoryComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
