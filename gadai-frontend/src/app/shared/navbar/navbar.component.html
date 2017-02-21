@@ -14,9 +14,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
 				<li><a routerLink="/about">About</a></li>
-				<li *ngIf="auth.sudahLogin()"><a href="#about">Simulasi</a></li>
-				<li *ngIf="auth.sudahLogin()"><a href="#about">Gadai</a></li>
-
+				<li *ngIf="auth.sudahLogin()"><a routerLink="/gadai/simulasi">Simulasi</a></li>
 				<li *ngIf="auth.sudahLogin()"><a href="#about">Welcome {{auth.getUserInfo().fullname}}</a></li>
 			</ul>
 

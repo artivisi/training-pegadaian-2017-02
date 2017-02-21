@@ -1,3 +1,38 @@
-<p>
-  simulasi works!
-</p>
+<h1>Simulasi Gadai</h1>
+
+<form class="form-horizontal">
+	<div class="form-group">
+      <label for="beratKotor" class="col-sm-2 control-label">Berat Kotor</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="beratKotor" placeholder="Berat Kotor dalam gram">
+      </div>
+    </div>
+	<div class="form-group">
+      <label for="beratBersih" class="col-sm-2 control-label">Berat Kotor</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="beratBersih" placeholder="Berat Bersih dalam gram">
+      </div>
+    </div>
+	<div class="form-group">
+      <label for="beratBersih" class="col-sm-2 control-label">Karatase</label>
+<div class="col-sm-6">
+	<div class="btn-group" dropdown>
+    <button id="split-button" type="button" class="btn btn-danger">Pilih Karatase</button>
+    <button type="button" class="btn btn-danger dropdown-toggle-split" dropdownToggle>
+      <span class="caret"></span>
+      <span class="sr-only">Split button!</span>
+    </button>
+    <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="split-button">
+      <li role="menuitem"><a class="dropdown-item" href="#">18 karat</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">24 karat</a></li>
+    </ul>
+  </div>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <a routerLink="/gadai/pengajuan" class="btn btn-default">Lanjutkan</a>
+    </div>
+  </div>
+</form>

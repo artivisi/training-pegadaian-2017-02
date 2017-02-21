@@ -4,7 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes }   from '@angular/router';
 
+import { DropdownModule } from 'ng2-bootstrap';
+
 import { SharedModule } from './shared/shared.module';
+import { GadaiModule } from './gadai/gadai.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
@@ -28,7 +31,9 @@ const routingAplikasi : Routes = [
     FormsModule,
     HttpModule,
 	RouterModule.forRoot(routingAplikasi),
-	SharedModule
+	DropdownModule.forRoot(),
+	SharedModule,
+	GadaiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
