@@ -3,5 +3,6 @@ export class Pengajuan {
 	karatase : number;
 	beratBersih : number;
 	beratKotor : number;
-	cabang : string
+	cabang : string;
+	foto : string;
 }

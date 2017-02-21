@@ -17,6 +17,15 @@ export class SimulasiComponent implements OnInit {
 	{ value : "24", label : "24 Karat"}
   ];
 
+  pilihanCabang = [
+  	{ id : "abcd001", nama : "Cabang Jakarta Timur"},
+	{ id : "abcd002", nama : "Cabang Jakarta Pusat"},
+	{ id : "abcd003", nama : "Cabang Jakarta Barat"}
+  ];
+
+  daftarPengajuan : Pengajuan[] = [];
+  totalNilai : number = 0;
+
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +33,12 @@ export class SimulasiComponent implements OnInit {
 
   lanjutkanPengajuan() : void {
 	  this.pengajuan.nilai = 550000 * this.pengajuan.beratBersih;
+  }
+
+  tambahkanPengajuanKeTabel(p : Pengajuan){
+	  this.daftarPengajuan.push(p);
+	  this.totalNilai = this.totalNilai + p.nilai;
+	  this.pengajuan = new Pengajuan();
   }
 
 }

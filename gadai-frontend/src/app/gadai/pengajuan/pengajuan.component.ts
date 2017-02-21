@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Pengajuan } from './pengajuan.model';
 
 @Component({
@@ -9,16 +9,19 @@ import { Pengajuan } from './pengajuan.model';
 export class PengajuanComponent implements OnInit {
 
   @Input() pengajuan: Pengajuan;
+  foto: string;
 
-  pilihanCabang = [
-  	{ id : "abcd001", nama : "Cabang Jakarta Timur"},
-	{ id : "abcd002", nama : "Cabang Jakarta Pusat"},
-	{ id : "abcd003", nama : "Cabang Jakarta Barat"}
-  ];
+  @Output() pengajuanEmitter = new EventEmitter<Pengajuan>();
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  tambahPengajuan() {
+	  this.pengajuan.foto = this.foto;
+	  this.pengajuanEmitter.emit(this.pengajuan);
   }
 
 }

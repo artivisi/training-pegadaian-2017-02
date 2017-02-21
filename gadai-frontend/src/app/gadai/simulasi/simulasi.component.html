@@ -35,13 +35,22 @@
 
 <hr>
 
-<pengajuan-gadai *ngIf="pengajuan.nilai" [pengajuan]="pengajuan"></pengajuan-gadai>
+<pengajuan-gadai *ngIf="pengajuan.nilai"
+	[pengajuan]="pengajuan"
+	(pengajuanEmitter)="tambahkanPengajuanKeTabel($event)"
+	>
+</pengajuan-gadai>
 
 
 <hr>
 
 <h2>Daftar Pengajuan</h2>
 
+<div *ngIf="daftarPengajuan.length < 1">
+	Belum ada data pengajuan
+</div>
+
+<div *ngIf="daftarPengajuan.length > 0">
 <table class="table table-bordered table-hovered table-striped">
 	<thead>
 		<tr>
@@ -55,13 +64,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
+		<tr *ngFor="let p of daftarPengajuan">
 			<td>1</td>
-			<td>10</td>
-			<td>9</td>
-			<td>18 karat</td>
-			<td>&nbsp;</td>
-			<td>Rp. 1.000.000</td>
+			<td>{{p.beratKotor}}</td>
+			<td>{{p.beratBersih}}</td>
+			<td>{{p.karatase}} karat</td>
+			<td>{{p.foto}}</td>
+			<td>{{p.nilai}}</td>
 			<td>
 				<button class="btn btn-sm btn-default">hapus</button>
 			</td>
@@ -69,7 +78,7 @@
 
 		<tr>
 			<td colspan="5"><b>Total</b></td>
-			<td>Rp. 20.000.000</td>
+			<td>Rp. {{totalNilai}}</td>
 			<td>&nbsp;</td>
 		</tr>
 	</tbody>
@@ -90,3 +99,4 @@
       </div>
     </div>
 </form>
+</div>
