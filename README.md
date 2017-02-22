@@ -12,6 +12,7 @@ Materi Pelatihan:
 	* Membuat form input
 	* Routing
 	* Access Control
+	* [Deployment ke Heroku](docs/angular2-heroku.md)
 
 * Spring Security dan OAuth 2.0
 
