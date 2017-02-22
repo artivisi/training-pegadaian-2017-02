@@ -1,10 +1,13 @@
 package id.artivisi.training.gadai.backend.entity;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.GenericGenerator;
@@ -33,6 +36,10 @@ public class User {
     @NotNull @NotEmpty
     @Column(name = "nomor_hp")
     private String nomorHandphone;
+    
+    @Column(name = "tanggal_lahir")
+    @Temporal(TemporalType.DATE)
+    private Date tanggalLahir;
 
     public String getId() {
         return id;
@@ -81,4 +88,14 @@ public class User {
     public void setNomorHandphone(String nomorHandphone) {
         this.nomorHandphone = nomorHandphone;
     }
+
+    public Date getTanggalLahir() {
+        return tanggalLahir;
+    }
+
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+    
+    
 }
