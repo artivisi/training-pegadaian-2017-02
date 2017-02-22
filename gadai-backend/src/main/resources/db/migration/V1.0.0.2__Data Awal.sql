@@ -12,3 +12,31 @@ values ('u004', 'user004', 'u00123', 'User 004', 'u004@example.com', '0812345678
 
 insert into s_user (id, username, password, fullname, email, nomor_hp)
 values ('u005', 'user005', 'u00123', 'User 005', 'u005@example.com', '0812345678905');
+
+
+insert into s_permission (id, name, description)
+values ('p001', 'USER_EDIT', 'Add / Remove User');
+
+insert into s_permission (id, name, description)
+values ('p002', 'USER_VIEW', 'View User');
+
+insert into s_role (id, name, description)
+values ('r001', 'Admin', 'Administrator');
+
+insert into s_role (id, name, description)
+values ('r002', 'Staff', 'Staff');
+
+insert into s_user_role (id_user, id_role)
+values ('u001', 'r001');
+
+insert into s_user_role (id_user, id_role)
+values ('u002', 'r002');
+
+insert into s_role_permission (id_role, id_permission)
+values ('r001', 'p001');
+
+insert into s_role_permission (id_role, id_permission)
+values ('r001', 'p002');
+
+insert into s_role_permission (id_role, id_permission)
+values ('r002', 'p002');
