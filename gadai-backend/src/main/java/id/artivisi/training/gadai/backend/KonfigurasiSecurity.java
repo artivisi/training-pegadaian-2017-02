@@ -41,8 +41,7 @@ public class KonfigurasiSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .formLogin()
-                .and()
-                .csrf().disable();
+                .and().logout();
     }
 
     @Bean
