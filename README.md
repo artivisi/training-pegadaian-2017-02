@@ -14,7 +14,7 @@ Materi Pelatihan:
 	* Access Control
 	* [Deployment ke Heroku](docs/angular2-heroku.md)
 
-* Spring Security dan OAuth 2.0
+* [Spring Security dan OAuth 2.0](docs/oauth.md)
 
 	* Setup Spring Security
 	* Menggunakan database untuk username/password
