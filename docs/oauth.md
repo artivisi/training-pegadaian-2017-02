@@ -61,7 +61,7 @@ URL : http://localhost:10000/oauth/token
 
 Generate dulu keypair yang tersimpan dalam keystore. Bisa dengan interaktif seperti ini
 
-![Generate Keystore](img/generate.keypair.png)
+![Generate Keystore](img/generate-keypair.png)
 
 Bisa juga dengan satu kali perintah seperti ini
 
