@@ -68,3 +68,5 @@ Bisa juga dengan satu kali perintah seperti ini
 ```
 keytool -genkeypair -alias jwt -keyalg RSA -dname "CN=Aplikasi Gadai, OU=Divisi Training, O=ArtiVisi, L=Jakarta, ST=Jakarta, C=ID" -keypass gadai123 -keystore src/main/resources/jwt.jks -storepass gadai123
 ```
+
+* URL untuk mengambil public key : [http://localhost:10000/oauth/token_key](http://localhost:10000/oauth/token_key)
