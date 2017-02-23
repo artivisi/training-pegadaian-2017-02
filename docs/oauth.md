@@ -55,3 +55,16 @@ URL : http://localhost:10000/oauth/token
 
 ![Refresh Token 1](img/refresh-token-1.png)
 ![Refresh Token 2](img/refresh-token-2.png)
+
+
+### Enable JWT ##
+
+Generate dulu keypair yang tersimpan dalam keystore. Bisa dengan interaktif seperti ini
+
+![Generate Keystore](img/generate.keypair.png)
+
+Bisa juga dengan satu kali perintah seperti ini
+
+```
+keytool -genkeypair -alias jwt -keyalg RSA -dname "CN=Aplikasi Gadai, OU=Divisi Training, O=ArtiVisi, L=Jakarta, ST=Jakarta, C=ID" -keypass gadai123 -keystore src/main/resources/jwt.jks -storepass gadai123
+```
