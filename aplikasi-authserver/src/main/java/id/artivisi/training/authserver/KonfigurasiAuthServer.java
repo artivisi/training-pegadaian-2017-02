@@ -37,7 +37,14 @@ public class KonfigurasiAuthServer extends AuthorizationServerConfigurerAdapter 
                 .secret("aplikasi123")
                 .authorizedGrantTypes("authorization_code", "refresh_token")
                 .scopes("modul-gadai", "modul-harga")
-                .accessTokenValiditySeconds(180);
+                .accessTokenValiditySeconds(180)
+                .and()
+                .withClient("aplikasijs")
+                .authorities("APLIKASI_CLIENT_OAUTH2")
+                .secret("aplikasi123")
+                .authorizedGrantTypes("password")
+                .scopes("modul-gadai", "modul-harga")
+                .autoApprove(true);
     }
 
     @Override
