@@ -10,9 +10,7 @@ export class UserService {
 	  let url = "/api/user";
 	  return this.authHttp.get(url).toPromise()
 	  .then(hasil => {
-		  let data = hasil.json();
-		  console.log(data);
-		  return data;
+		  return hasil.json();
 	    })
 	  .catch(error => {
 		  console.log(error);

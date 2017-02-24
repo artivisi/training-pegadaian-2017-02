@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LupaComponent } from './lupa/lupa.component';
 
+import { ModalModule } from 'ng2-bootstrap';
+
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
@@ -26,6 +28,7 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CommonModule,
 	RouterModule,
 	FormsModule,
+	ModalModule.forRoot(),
 	HttpModule
   ],
   providers: [ AuthService , UserService, {
