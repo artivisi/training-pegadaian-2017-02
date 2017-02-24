@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
@@ -15,7 +16,8 @@ import { AuthService } from './auth.service';
   imports: [
     CommonModule,
 	RouterModule,
-	FormsModule
+	FormsModule,
+	HttpModule
   ],
   providers: [ AuthService ],
   declarations: [ NavbarComponent, LoginComponent, RegistrasiComponent, FooterComponent, WelcomeComponent, LupaComponent ],

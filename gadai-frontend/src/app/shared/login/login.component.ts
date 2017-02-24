@@ -24,16 +24,19 @@ export class LoginComponent implements OnInit {
 
 	  this.progressService.showDialog("Memeriksa username dan password");
 
-	  setTimeout(() => {
-		  if (this.auth.login(this.username, this.password)){
-			  console.log("Login sukses");
+	  this.auth.login(this.username, this.password)
+	  .then(sukses => {
+		  this.progressService.hideDialog();
+		  if(sukses) {
+			  console.log("Login berhasil");
 			  this.router.navigate(["/"]);
 		  } else {
 			  console.log("Login gagal");
-		  }
-
+		  }})
+	  .catch(error => {
+		  console.log(error);
 		  this.progressService.hideDialog();
-	  }, 3 * 1000);
+		  });
   }
 
 }
