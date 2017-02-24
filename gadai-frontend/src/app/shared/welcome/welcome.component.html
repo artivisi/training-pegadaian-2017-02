@@ -1,3 +1,20 @@
-<p>
-  welcome works!
-</p>
+<table class="table-condensed table-bordered">
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Fullname</th>
+			<th>Email</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let u of userData.content">
+			<td>{{u.username}}</td>
+			<td>{{u.fullname}}</td>
+			<td>{{u.email}}</td>
+			<td>
+				<button class="btn btn-default">view</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

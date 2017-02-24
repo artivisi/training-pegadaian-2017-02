@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+   userData : any = {};
+
+  constructor(private userService : UserService) { }
 
   ngOnInit() {
+	  this.userService.getUserData()
+	  .then( data => this.userData = data);
   }
 
 }

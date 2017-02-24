@@ -3,14 +3,15 @@ import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { tokenNotExpired } from 'angular2-jwt';
+
 @Injectable()
 export class AuthService {
 
   constructor(private http: Http) { }
 
   sudahLogin() : boolean {
-	  return localStorage.getItem("userInfo") != null
-	  && localStorage.getItem("token") != null;
+	  return tokenNotExpired("access_token");
   }
 
   login (username : string, password : string) : Promise<boolean> {
@@ -26,7 +27,7 @@ export class AuthService {
 	  .then(hasil => {
 		  let data = hasil.json();
 		  console.log("Access Token : "+data.access_token);
-		  localStorage.setItem("token", data.access_token);
+		  localStorage.setItem("access_token", data.access_token);
 		  localStorage.setItem("userInfo", JSON.stringify({username : username, fullname: username}));
 		  return true;
 		  })
@@ -38,7 +39,7 @@ export class AuthService {
 
   logout () : void {
 	  localStorage.removeItem("userInfo");
-	  localStorage.removeItem("token");
+	  localStorage.removeItem("access_token");
   }
 
   getUserInfo(){
