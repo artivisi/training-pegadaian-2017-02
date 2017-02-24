@@ -10,8 +10,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,6 +25,8 @@ public class UserApiController {
     
     @Autowired private UserDao userDao;
     
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    
     @PreAuthorize("hasAuthority('USER_VIEW')")
     @GetMapping("/user")
     public Page<User> semuaUser(Pageable page){
@@ -33,6 +37,15 @@ public class UserApiController {
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.CREATED)
     public void userBaru(@RequestBody @Valid User u, HttpServletRequest req){
+        u.setPassword(passwordEncoder.encode(u.getPassword()));
+        userDao.save(u);
+    }
+    
+    @PreAuthorize("hasAuthority('USER_EDIT')")
+    @PutMapping("/user")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateUser(@RequestBody @Valid User u, HttpServletRequest req){
+        u.setPassword(passwordEncoder.encode(u.getPassword()));
         userDao.save(u);
     }
     

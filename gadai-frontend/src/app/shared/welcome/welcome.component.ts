@@ -36,7 +36,12 @@ export class WelcomeComponent implements OnInit {
   }
 
   simpan() : void {
-	  this.dialogEditUser.hide();
+	  this.userService.simpan(this.user)
+	  .then(hasil => {
+		  console.log("Sukses : "+hasil);
+	  		this.dialogEditUser.hide();
+			this.refreshTabelUser();
+		  });
   }
 
 }

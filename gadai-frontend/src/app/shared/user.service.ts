@@ -18,4 +18,27 @@ export class UserService {
 		  });
   }
 
+  simpan(user) : Promise<boolean> {
+	  let url = "/api/user";
+	  if(user.id != null){
+	  return this.authHttp.put(url, user).toPromise()
+	  .then(hasil => {
+		  return true;
+	    })
+	  .catch(error => {
+		  console.log(error);
+		  return false;
+		  });
+	  } else {
+		  return this.authHttp.post(url, user).toPromise()
+		  .then(hasil => {
+			  return true;
+		    })
+		  .catch(error => {
+			  console.log(error);
+			  return false;
+			  });
+	  }
+  }
+
 }
